@@ -1,8 +1,25 @@
-# runningvariance
-A package for accurately computing running (online) mean, variance, and standard deviation
+# runningvariance (Go)
 
-`go get github.com/carbocation/runningvariance`
+[![GoDoc](https://godoc.org/github.com/andreyvit/runningvariance?status.svg)](https://godoc.org/github.com/andreyvit/runningvariance)
 
-To test (100% coverage)
+Computes running mean, variance, standard deviation, skewness and kurtosis
+using O(1) memory.
 
-`go test -cover`
+Install:
+
+```sh
+go get github.com/andreyvit/runningvariance
+```
+
+Example:
+
+```go
+var s runningvariance.Stat
+s.Push(0)
+s.Push(2)
+s.Push(4)
+fmt.Println("Mean:", s.Mean())
+fmt.Println("StdDev:", s.StdDev())
+```
+
+See [the docs](https://godoc.org/github.com/andreyvit/runningvariance) for more.
